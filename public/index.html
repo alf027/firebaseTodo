@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="fireBaseTodoApp">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.8/semantic.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -14,11 +15,38 @@
   <title>AngularFire App</title>
 </head>
 <body>
-  <div class="row">
-    <div class="col-lg-4">.col-sm-4</div>
-    <div class="col-lg-4">.col-sm-4</div>
-    <div class="col-lg-4">.col-sm-4</div>
+
+  <div class="ui grid" ng-controller="TodosController">
+    <div class="four wide column"></div>
+    <div class="eight wide column">
+      <div class="ui list segment">
+        <h1 class="heading">AngularFire Todo</h1>
+
+        <!-- Form Markup -->
+        <form class="ui form" ng-submit="addTodo()">
+          <div class="field">
+            <label>New Todo</label>
+            <input type="text" ng-model="newTodo.text">
+          </div>
+        </form>
+
+        <!-- Todo Markup -->
+        <a class="item" ng-repeat="todo in todos">
+          <i class="remove icon" ng-click="removeTodo(todo)"></i>
+          <div class="content">
+            <div class="header">{{todo.text}}</div>
+          </div>
+        </a>
+      </div>
+      <div class="four wide column"></div>
+    </div>
+
   </div>
 
+
+
+  <script src="/js/module.js"></script>
+  <script src="/js/controllers.js"></script>
+  <script src="/js/routes.js"></script>
 </body>
 </html>
