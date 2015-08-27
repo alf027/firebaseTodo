@@ -12,6 +12,7 @@
   <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
   <!-- AngularFire -->
   <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+  <!--<script src="js/module.js"></script>-->
   <title>AngularFire App</title>
 </head>
 <body>
@@ -42,7 +43,7 @@
               </select>
             </form>
             <div class="header" ng-click="showTodo(todo)" style="display:inline">{{todo.text}}</div>
-            <i class="save icon" ng-show="editTodo" ng-click="saveChanges()"></i>
+            <i class="save icon" ng-show="editTodo" ng-click="saveChanges(todo,text,completed)"></i>
             <i class="edit icon" ng-click="editTodo = !editTodo; showTodo(todo);"></i>
           </div>
         </a>
@@ -54,8 +55,8 @@
 
 
 
-  <script src="/js/module.js"></script>
-  <script src="/js/controllers.js"></script>
-  <script src="/js/routes.js"></script>
+  <script src="js/module.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/routes.js"></script>
 </body>
 </html>

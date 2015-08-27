@@ -16,13 +16,22 @@ $scope.showTodo = function(todo){
   $scope.id = todo.$id;
 }
 
-$scope.saveChanges = function(){
-  var id = $scope.id;
-  var record = $scope.todos.$getRecord(id);
-  record.text = $scope.text;
-  record.completed = $scope.completed;
+$scope.saveChanges = function(todo,text,completed){
+  //var id = $scope.id;
+  //var record = $scope.todos.$getRecord(id);
+  console.log(todo);
+  console.log(text);
+  console.log(completed);
+  todo.text = text;
+  if (completed == 'completed') {
+    todo.completed = true;
+  } else {
+    todo.completed = false;
+  }
+  //todo.completed = $scope.completed;
+  console.log(todo);
 
-  $scope.todo.$save(record);
+  $scope.todos.$save(todo);
 }
 
   $scope.removeTodo = function(todo){
