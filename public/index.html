@@ -34,7 +34,16 @@
         <a class="item" ng-repeat="todo in todos">
           <i class="remove icon" ng-click="removeTodo(todo)"></i>
           <div class="content">
-            <div class="header">{{todo.text}}</div>
+            <form class="ui form" ng-show="editTodo">
+              <input type="text" ng-model="text">
+              <select ng-model="completed" ng-init="completed = 'unfinished'">
+                <option value="completed">Completed</option>
+                <option value="unfinished">Unfinished</option>
+              </select>
+            </form>
+            <div class="header" ng-click="showTodo(todo)" style="display:inline">{{todo.text}}</div>
+            <i class="save icon" ng-show="editTodo" ng-click="saveChanges()"></i>
+            <i class="edit icon" ng-click="editTodo = !editTodo; showTodo(todo);"></i>
           </div>
         </a>
       </div>
